@@ -8,7 +8,6 @@
     <link rel="shortcut icon" href="images/tenlogo.png">
 </head>
 <body>
-<div class="content">
 <div class="header">
         <a href="puzzle.html">js/загадки</a>
         <a href="guess.html">js/отгадать число</a>
@@ -18,12 +17,12 @@
 <div class="contentWrap">
     <div class="content">
         <div class="center">
+            <h1>Отгадывание числа</h1>
             <div class="box">
-                
-                 <p id="info">Угадайте число от 1 до 100, для выхода введите: выход.<br> Первый игрок, введите ваше имя: </p>
-                 <input type="text" id="userAnswer">
-                 <br>
-                 <a href="#" onClick="guess();">Ответить</a>
+                <p id="info">Угадайте число от 1 до 100, для выхода введите: выход.<br> Первый игрок, введите ваше имя: </p>
+                <input type="text" id="userAnswer" placeholder="your answer">
+                <br>
+                <a href="#" onClick="guess();" id="button">Ответить</a>
             </div>
         </div>
     </div>
