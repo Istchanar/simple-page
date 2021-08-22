@@ -3,83 +3,15 @@
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/styles.css">
-    <title>ist</title>
-    <script type="text/javascript">
-    var answer = parseInt(Math.random() * 100);
-    function readInt(){
-        return document.getElementById("userAnswer").value;
-    }
-    function write(text){
-        document.getElementById("info").innerHTML= text;
-    }
-
-    function guess1(){
-        write("Всем привет");
-        var a = readInt();
-        alert(a);
-    }
-
-    var answer = parseInt(Math.random() * 100);
-
-    function guess(){
-        write("Первый игрок, введите имя: ");
-        var first = readInt();
-        write("Второй игрок, введите имя: ");
-        var second = readInt();
-        var firstPlayerInGame = true;
-        var secondPlayerInGame = true;
-        var turn = 1;
-        if (firstPlayerInGame == true || secondPlayerInGame == true) {
-        if(turn == 1 && firstPlayerInGame == true)
-        {
-            write("Ход игрока " + first + " , для выхода введите: выход. Угадайте число от 0 до 100: ");
-            var userAnswer = readInt();//prompt("Ход игрока " + first + " , для выхода введите: выход. Угадайте число от 0 до 100: ");
-            if(parseInt(userAnswer) == answer){
-                write("Поздравляю, " + first + " угадал число!");
-            } else if(parseInt(userAnswer) > answer){
-                write(first + " ввёл слишком большое число.");
-            } else if(parseInt(userAnswer) < answer){
-                write(first + " ввёл слишком маленькое число.");
-            } else if(userAnswer == "выход"){
-                write(first + " вышел из игры!")
-                firstPlayerInGame = false;
-            }
-            if(secondPlayerInGame==true)
-            {
-            turn = 2;
-            }
-        }
-        else if (turn == 2 && secondPlayerInGame == true)
-        {
-            write("Ход игрока " + second + " , для выхода введите: выход. Угадайте число от 0 до 100: ");
-            var userAnswer = readInt(); //prompt("Ход игрока " + second + " , для выхода введите: выход. Угадайте число от 0 до 100: ");
-            if(parseInt(userAnswer) == answer){
-                write("Поздравляю, " + second + " угадал число!");
-            } else if(parseInt(userAnswer) > answer){
-                write(second + " ввёл слишком большое число.");
-            } else if(parseInt(userAnswer) < answer){
-                write(second + " ввёл слишком маленькое число.");
-            } else if(userAnswer == "выход"){
-                write(second + " вышел из игры!")
-                secondPlayerInGame = false;
-            }
-            if(firstPlayerInGame==true)
-            {
-            turn = 1;
-            }
-        }
-        }
-        else{
-        write("Все игроки вышли!")}
-        }
-    
-    </script>
+    <title>js/отгадать число</title>
+    <script src="js/guess.js"></script>
+    <link rel="shortcut icon" href="images/tenlogo.png">
 </head>
 <body>
 <div class="content">
 <div class="header">
-        <a href="puzzle.html">Игра в загадки</a>
-        <a href="guess.html">Угадайка</a>
+        <a href="puzzle.html">js/загадки</a>
+        <a href="guess.html">js/отгадать число</a>
         <a href="git-help.html">Git-help</a>
         <a href="index.html">Обо мне</a>
 </div>
@@ -88,10 +20,10 @@
         <div class="center">
             <div class="box">
                 
-                 <p id="info">Угадайте число от 1 до 100:</p>
+                 <p id="info">Угадайте число от 1 до 100, для выхода введите: выход.<br> Первый игрок, введите ваше имя: </p>
                  <input type="text" id="userAnswer">
                  <br>
-                 <a href="#" onClick=guess();>Ответить</a>
+                 <a href="#" onClick="guess();">Ответить</a>
             </div>
         </div>
     </div>
