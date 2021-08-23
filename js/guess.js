@@ -1,15 +1,19 @@
 var answer = parseInt(Math.random() * 100);
 var first = "";
 var second = "";
+
+//Cостояние игроков и очерёдность хода;
 var firstPlayerInGame = true;
 var secondPlayerInGame = true;
 var turn = 1;
+
+//Очерёдность игроков;
 var tryCountFirst = 0;
 var tryCountSecond = 0;
 var maxTryCount = 5;
   
 //Читает строку из инпута;
-function readInt(){
+function readInp(){
     return document.getElementById("userAnswer").value;
 }
 
@@ -38,13 +42,13 @@ function hide(id){
 
 function guess(){
     if(first==""){
-        first = readInt();
+        first = readInp();
         write("Приятно познакомиться, " + first + "!<br> Второй игрок, введите ваше имя: ");
         clearInp();
     }
 
     else if (second==""){
-        second = readInt();
+        second = readInp();
         write("Приятно познакомиться, " + second + "!<br> Игрок " + first + ", ваш ход!");
         clearInp();
     }
@@ -55,10 +59,13 @@ function guess(){
 
             if(turn == 1 && firstPlayerInGame == true){
                 tryCountFirst++;
-                var userAnswer = readInt();                 
+                var userAnswer = readInp();                 
                 
                 if(parseInt(userAnswer) == answer){
-                    switchTurn(2, secondPlayerInGame, "Поздравляю, " + first + " угадал число!<br> Ходит " + second + ":");
+                    switchTurn(2, secondPlayerInGame, "Поздравляю, " + first + " угадал число!");
+                    hide("userAnswer");
+                    firstPlayerInGame = false;
+                    secondPlayerInGame = false;
                 } 
                 else if(tryCountFirst >= maxTryCount)
                 {
@@ -79,17 +86,26 @@ function guess(){
                     switchTurn(2, secondPlayerInGame, first + " ввёл слишком маленькое число.  Осталось <b>" + (maxTryCount - tryCountFirst) + "</b> попыток. <br> Ходит " + second + ":");
                 } 
                 else if(userAnswer == "выход"){
-                    switchTurn(2, secondPlayerInGame, first + " вышел из игры!<br> Ходит " + second + ":");
+                    if(secondPlayerInGame==false){
+                        switchTurn(2, secondPlayerInGame, first + " вышел из игры!");
+                        hide("userAnswer");
+                    }
+                    else{
+                        switchTurn(2, secondPlayerInGame, first + " вышел из игры!<br> Ходит " + second + ":");
+                    }
                     firstPlayerInGame = false;
                     first = second;
                 }
             }
             else if (turn == 2 && secondPlayerInGame == true){
                 tryCountSecond++;
-                var userAnswer = readInt();
+                var userAnswer = readInp();
                 
                 if(parseInt(userAnswer) == answer){
-                    switchTurn(1, firstPlayerInGame, "Поздравляю, " + second + " угадал число!<br> Ходит " + first + ":");
+                    switchTurn(1, firstPlayerInGame, "Поздравляю, " + second + " угадал число!");
+                    hide("userAnswer");
+                    firstPlayerInGame = false;
+                    secondPlayerInGame = false;
                 } 
                 else if(tryCountSecond >= maxTryCount)
                 {
@@ -110,14 +126,20 @@ function guess(){
                     switchTurn(1, firstPlayerInGame, second + " ввёл слишком маленькое число. Осталось <b>" + (maxTryCount - tryCountFirst) + "</b> попыток. <br> Ходит " + first + ":");
                 } 
                 else if(userAnswer == "выход"){
-                    switchTurn(1, firstPlayerInGame, second + " вышел из игры!<br> Ходит " + first + ":");
+                    if(firstPlayerInGame==false){
+                        switchTurn(1, firstPlayerInGame, second + " вышел из игры!");
+                        hide("userAnswer");
+                    }
+                    else{
+                        switchTurn(1, firstPlayerInGame, second + " вышел из игры!<br> Ходит " + first + ":");
+                    }
                     secondPlayerInGame = false;
                     second = first;
                 }
             }
         }
         else{
-        write("Все игроки вышли!");
+        write("Игра окончена.");
         hide("userAnswer");
         hide("button");
         }

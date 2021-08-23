@@ -2,10 +2,10 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="css/guess.css">
-    <title>js/угадай число</title>
-    <script src="js/guess.js"></script>
-    <link rel="shortcut icon" href="images/tenlogo.png">
+    <link rel="stylesheet" href="css/generate-pass.css">
+    <title>js/genpass</title>
+    <link rel="shortcut icon" href="images/genpasslogo.png">
+    <script src="js/generate-pass.js"></script>
 </head>
 <body>
 <div class="header">
@@ -18,12 +18,15 @@
 <div class="contentWrap">
     <div class="content">
         <div class="center">
-            <h1>Угадай число</h1>
+            <h1>Генератор пароля</h1>
             <div class="box">
-                <p id="info">Угадайте число от 1 до 100. Всего <b>5</b> попыток.<br>Для выхода введите: выход.<br> Первый игрок, введите ваше имя: </p>
-                <input type="text" id="userAnswer" placeholder="your answer">
+                <p id = "info">Длинна пароля ожидается от 5 до 15 символов.<br>Укажите длинну пароля: </p>
+                <input type="text" id="passwordlength" placeholder="your length">
+
+                <p>Пароль:</p>
+                <input type="text" id="password" placeholder="your pass">
                 <br>
-                <a href="#" onClick="guess();" id="button">Ответить</a>
+                <a href="#" onClick="generatePass();">Ответить</a>
             </div>
         </div>
     </div>
