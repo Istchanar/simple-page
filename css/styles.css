@@ -140,7 +140,7 @@ body {
 }
 
 .content .box input {
-    border: 1px solid #a0a0a0;
+    border: 1px solid #f2d3a6;
     background-color: #f5f5f5;
     width: 460px;
     height: 35px;
@@ -170,6 +170,10 @@ body {
 
 .content .box a:hover {
     background-color: #5ba1d3;
+}
+
+.content .box b{
+    font-weight: 380;
 }
 
 .footer {

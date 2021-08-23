@@ -6,7 +6,7 @@ var secondPlayerInGame = true;
 var turn = 1;
 var tryCountFirst = 0;
 var tryCountSecond = 0;
-var maxTryCount = 2;
+var maxTryCount = 5;
   
 //Читает строку из инпута;
 function readInt(){
@@ -60,23 +60,23 @@ function guess(){
                 if(parseInt(userAnswer) == answer){
                     switchTurn(2, secondPlayerInGame, "Поздравляю, " + first + " угадал число!<br> Ходит " + second + ":");
                 } 
-                else if(tryCountFirst > maxTryCount)
+                else if(tryCountFirst >= maxTryCount)
                 {
-                    if(tryCountSecond>maxTryCount){
-                        switchTurn(2, secondPlayerInGame, "Игрок, " + first + " проиграл(");
+                    if(secondPlayerInGame==false){
+                        switchTurn(2, secondPlayerInGame, first + " проиграл( Осталось <b>" + (maxTryCount - tryCountFirst) + "</b> попыток.");
                         hide("userAnswer");
                     }
                     else{
-                    switchTurn(2, secondPlayerInGame, "Игрок, " + first + " проиграл(<br> Ходит " + second + ":");
+                        switchTurn(2, secondPlayerInGame, first + " проиграл( Осталось <b>" + (maxTryCount - tryCountFirst) + "</b> попыток. <br> Ходит " + second + ":");
                     }
                     firstPlayerInGame = false;
                     first = second;
                 }
                 else if(parseInt(userAnswer) > answer){
-                    switchTurn(2, secondPlayerInGame, first + " ввёл слишком большое число. " + tryCountFirst + " <br> Ходит " + second + ":");
+                    switchTurn(2, secondPlayerInGame, first + " ввёл слишком большое число. Осталось <b>" + (maxTryCount - tryCountFirst) + "</b> попыток. <br> Ходит " + second + ":");
                 } 
                 else if(parseInt(userAnswer) < answer){
-                    switchTurn(2, secondPlayerInGame, first + " ввёл слишком маленькое число. " + tryCountFirst + "<br> Ходит " + second + ":");
+                    switchTurn(2, secondPlayerInGame, first + " ввёл слишком маленькое число.  Осталось <b>" + (maxTryCount - tryCountFirst) + "</b> попыток. <br> Ходит " + second + ":");
                 } 
                 else if(userAnswer == "выход"){
                     switchTurn(2, secondPlayerInGame, first + " вышел из игры!<br> Ходит " + second + ":");
@@ -91,23 +91,23 @@ function guess(){
                 if(parseInt(userAnswer) == answer){
                     switchTurn(1, firstPlayerInGame, "Поздравляю, " + second + " угадал число!<br> Ходит " + first + ":");
                 } 
-                else if(tryCountSecond > maxTryCount)
+                else if(tryCountSecond >= maxTryCount)
                 {
-                    if(tryCountFirst>maxTryCount){
-                        switchTurn(2, firstPlayerInGame, "Игрок, " + second + " проиграл(");
+                    if(firstPlayerInGame==false){
+                        switchTurn(2, firstPlayerInGame, second + " проиграл( Осталось <b>" + (maxTryCount - tryCountFirst) + "</b> попыток.");
                         hide("userAnswer");
                     }
                     else{
-                    switchTurn(2, secondPlayerInGame, "Игрок, " + second + " проиграл(<br> Ходит " + first + ":");
+                        switchTurn(2, secondPlayerInGame, second + " проиграл( Осталось <b>" + (maxTryCount - tryCountFirst) + "</b> попыток. <br> Ходит " + first + ":");
                     }
                     secondPlayerInGame = false;
                     second = first;
                 }
                 else if(parseInt(userAnswer) > answer){
-                    switchTurn(1, firstPlayerInGame, second + " ввёл слишком большое число.<br> Ходит " + first + ":");
+                    switchTurn(1, firstPlayerInGame, second + " ввёл слишком большое число. Осталось <b>" + (maxTryCount - tryCountFirst) + "</b> попыток. <br> Ходит " + first + ":");
                 } 
                 else if(parseInt(userAnswer) < answer){
-                    switchTurn(1, firstPlayerInGame, second + " ввёл слишком маленькое число.<br> Ходит " + first + ":");
+                    switchTurn(1, firstPlayerInGame, second + " ввёл слишком маленькое число. Осталось <b>" + (maxTryCount - tryCountFirst) + "</b> попыток. <br> Ходит " + first + ":");
                 } 
                 else if(userAnswer == "выход"){
                     switchTurn(1, firstPlayerInGame, second + " вышел из игры!<br> Ходит " + first + ":");
@@ -119,6 +119,7 @@ function guess(){
         else{
         write("Все игроки вышли!");
         hide("userAnswer");
+        hide("button");
         }
     }
 }
