@@ -2,4 +2,4 @@
 
 Простая страничка для экспериментов с js/css/html.
 
-Ссылка: http://k99500go.beget.tech/index.php
+Ссылка: http://istchanar.ru/ (http://k99500go.beget.tech/index.php)
