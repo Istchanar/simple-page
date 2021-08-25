@@ -73,7 +73,7 @@ body {
     margin-bottom: 30px;
 }
 
-.content .box input {
+.content .box .input {
     border: 1px solid #f2d3a6;
     background-color: #f5f5f5;
     width: 460px;
@@ -84,11 +84,11 @@ body {
     margin-bottom: 10px;
 }
 
-.content .box input::placeholder{
+.content .box .input::placeholder{
     color: #c4c4c4;
 }
 
-.content .box a {
+.content .box .button {
     display: block;
     float: left;
     background-color:  #a1d1cf;

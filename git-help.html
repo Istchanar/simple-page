@@ -7,7 +7,13 @@
     <title>git-help</title>
 </head>
 <body>
-<?php include "header.php"?>
+<div class="header">
+    <a href="puzzle.php">js/загадки</a>
+    <a href="guess.html">js/угадай число</a>
+    <a href="generate-pass.html">js/genpass</a>
+    <a href="git-help.html">git-help</a>
+    <a href="index.php">О странице</a>
+</div>
 <div class="content">
 
     <h1><img src="images/git.png">git-help</h1>
@@ -49,10 +55,12 @@
                 <b>git tag --list</b> - списко тегов (версий);<br>
                 <b>git push --tags</b> - пуш тегов в удаленный репозиторий;<br>
                 <b>git push --delete origin 1.0.0</b> - удаление тега в удаленном репозитории.</p>
+
+            <p>Курс обучения git: <a href="https://githowto.com/ru" target="_blank">https://githowto.com/ru</a></p>
     </div>
 </div>
 <div class="footer">
-    <?php echo date("Y");?> istchanar@gmail.com
+    istchanar@gmail.com
     <a href="https://github.com/Istchanar" target="_blank"><img src="images/github.png" alt="github"></a>
 </div>
 </body>

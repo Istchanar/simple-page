@@ -14,25 +14,54 @@
         <div class="center">
             <h1>Загадки</h1>
             <div class="box">
-                <p>Что ты никогда не сможешь съесть на завтрак?</p>
-                <input type="text" id="userAnswer1" placeholder="your answer">
+                <?php 
+                    if(isset($_GET['userAnswer1']) && isset($_GET['userAnswer2']) && isset($_GET['userAnswer3']) && isset($_GET['userAnswer4'])){
+                        $score = 0;
+                        $userAnswer = $_GET["userAnswer1"];
+                        if($userAnswer == "обед" || $userAnswer == "Обед" || $userAnswer == "ужин" || $userAnswer == "Ужин"){
+                            $score++;
+                        }
 
-                <p>Что все время приходит, но никак не придет?</p>
-                <input type="text" id="userAnswer2" placeholder="your answer">
+                        $userAnswer = $_GET["userAnswer2"];
+                        if($userAnswer == "завтра" || $userAnswer == "Завтра"){
+                            $score++;
+                        }
 
-                <p>Кто может поднять и передвинуть и коня, и слона?</p>
-                <input type="text" id="userAnswer3" placeholder="your answer" >
+                        $userAnswer = $_GET["userAnswer3"];
+                        if($userAnswer == "шахматист" || $userAnswer == "Шахматист"){
+                            $score++;
+                        }
 
-                <p>Что может в одно и то же время стоять и ходить,<br> висеть и стоять, ходить и лежать?</p>
-                <input type="text" id="userAnswer4" placeholder="your answer">
-                <br>
-                <a href="#" onClick="checkAnswer();">Ответить</a>
+                        $userAnswer = $_GET["userAnswer4"];
+                        if($userAnswer == "часы"|| $userAnswer == "Часы"){
+                            $score++;
+                        }
+
+                        echo "Угадано " . $score . " из 4 загадок!";
+                    }
+                ?>
+                <form method="GET">
+                    <p>Что ты никогда не сможешь съесть на завтрак?</p>
+                    <input class="input" type="text" name="userAnswer1" placeholder="your answer">
+
+                    <p>Что все время приходит, но никак не придет?</p>
+                    <input class="input" type="text" name="userAnswer2" placeholder="your answer">
+
+                    <p>Кто может поднять и передвинуть и коня, и слона?</p>
+                    <input class="input" type="text" name="userAnswer3" placeholder="your answer" >
+
+                    <p>Что может в одно и то же время стоять и ходить,<br> висеть и стоять, ходить и лежать?</p>
+                    <input class="input" type="text" name="userAnswer4" placeholder="your answer">
+                    <br>
+
+                    <input class="button" type="submit" value="Ответить" name="">
+                </form>
             </div>
         </div>
     </div>
 </div>
 <div class="footer">
-    <?php echo date("Y");?> istchanar@gmail.com
+    istchanar@gmail.com
     <a href="https://github.com/Istchanar" target="_blank"><img src="images/github.png" alt="github"></a>
 </div>
 </body>

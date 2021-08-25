@@ -13,7 +13,7 @@ function check(id, answers){
 function checkAnswer(){
     check("userAnswer1", ["обед", "Обед", "ужин", "Ужин"]);
     check("userAnswer2", ["завтра","Завтра"]);
-    check("userAnswer3", ["шахматист"]);
+    check("userAnswer3", ["шахматист", "Шахматист"]);
     check("userAnswer4", ["часы","Часы"]);
     alert("Вы ответили на " + score + " загадки!");
 } 
